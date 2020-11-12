@@ -18,7 +18,7 @@ app.use('/posts',postRoutes)
 // MongoDB 
 
 const CONNECTION_URL = 'mongodb+srv://dipzzz234:br9PXPnWbrFLFiIP@cluster0.qdre7.mongodb.net/<dbname>?retryWrites=true&w=majority'
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL,{ useNewUrlParser:true, useUnifiedTopology:true })
     .then(()=>app.listen(PORT,()=>console.log(`server running on port ${PORT}`)))
