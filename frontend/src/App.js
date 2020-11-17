@@ -11,6 +11,8 @@ import memories from './images/memories.png'
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
 
+import './index.css'
+
 // makeStyles()
 import useStyles from './styles.js'
 
