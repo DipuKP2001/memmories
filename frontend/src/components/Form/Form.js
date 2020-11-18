@@ -6,15 +6,19 @@ import FileBase from 'react-file-base64'
 import { useDispatch } from "react-redux";
 
 import useStyles from './styles.js'
-import { createPost } from "../../actions/posts";
+import { createPost,updatePost } from "../../actions/posts";
 
-function Form(){
+function Form({ currentId,setCurrentId }){
     const [postData,setPostData] = useState({ creator:'',title:'',message:'',tags:'',selectedFile:'' })
     const classes = useStyles()
     const dispatch = useDispatch()
-    const handleSubmit = (e)=>{
+    const handleSubmit = async(e)=>{
         e.preventDefault()
-        dispatch(createPost(postData))
+        if(currentId){
+            dispatch(updatePost(currentId,postData))
+        }else{
+            dispatch(createPost(postData))
+        }
     }
     const clear = ()=>{
         
