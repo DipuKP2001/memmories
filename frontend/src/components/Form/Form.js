@@ -23,14 +23,16 @@ function Form({ currentId,setCurrentId }){
         }else{
             dispatch(createPost(postData))
         }
+        clear()
     }
     const clear = ()=>{
-        
+        setCurrentId(null)
+        setPostData({ creator:'',title:'',message:'',tags:'',selectedFile:'' })
     }
     return (
-        <Paper>
+        <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">Create a Memmory</Typography>
+                <Typography variant="h6">{currentId ? 'Editing':'Creating'} a Memmory</Typography>
                 <TextField className={classes.fileInput} name="creator" variant="outlined" label="Creator" value={postData.creator} onChange={(e)=>setPostData({...postData,creator:e.target.value})}/>
                 <TextField className={classes.fileInput} name="title" variant="outlined" label="Title" value={postData.title} onChange={(e)=>setPostData({...postData,title:e.target.value})}/>
                 <TextField className={classes.fileInput} name="message" variant="outlined" label="Message" value={postData.message} onChange={(e)=>setPostData({...postData,message:e.target.value})}/>
